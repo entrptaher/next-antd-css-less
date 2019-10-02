@@ -1,12 +1,6 @@
 import React from 'react'
-import Button from 'antd/lib/button';
-import './index.less';
-import { hero } from './style.css';
+import TheButton from '../components/TheButton'
 
-const Home = () => (
-  <div className={hero}>
-    <Button>Test</Button>
-  </div>
-)
+const Home = () => (<TheButton/>)
 
 export default Home
