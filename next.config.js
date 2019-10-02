@@ -40,6 +40,9 @@ const lessOptions = {
 };
 
 module.exports = withCss(withSass({
+  // sass takes care of css modules
   cssModules: true,
+  
+  // less takes care of custom antd designs
   ...withLess(lessOptions)
 }))
