@@ -41,8 +41,5 @@ const lessOptions = {
 
 module.exports = withCss(withSass({
   cssModules: true,
-  ...withLess(
-    lessOptions,
-    
-  )
+  ...withLess(lessOptions)
 }))
