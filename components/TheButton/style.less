@@ -1,8 +1,20 @@
 // Customizing Less: https://ant.design/docs/react/customize-theme#Customize-in-less-file
 // If you want change a lot of css without caring output size, uncomment the following,
-// @import '~antd/dist/antd.less'; 
+// @import '~antd/dist/antd.less';
 
-@import '~antd/es/button/style/index.less';
+.mixin(){
+  :global{
+    @import "~antd/lib/button/style/index.less";
+    @btn-default-color: @red-8;
+    @btn-default-border: @red-8;
+  }
+}
 
-@btn-default-color: @red-8;
-@btn-default-border: @red-8;
+.Container{
+  .mixin();
+  background: red;
+  
+  .BigBtn{
+    padding: 100px;
+  }
+}

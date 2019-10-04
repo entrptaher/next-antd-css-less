@@ -5,7 +5,7 @@ const withLess = require('@zeit/next-less')
 const webpackConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
-      const antStyles = /antd\/.*?\/style\/css.*?/
+      const antStyles = /antd\/.*?\.css*?/
       const origExternals = [...config.externals]
       config.externals = [
         (context, request, callback) => {
@@ -29,8 +29,10 @@ const webpackConfig = {
 }
 
 const lessOptions = {
+  cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,
+    modules: true,
     localIdentName: "[folder]_[local]___[hash:base64:5]",
   },
   lessLoaderOptions: {
@@ -39,10 +41,4 @@ const lessOptions = {
   ...webpackConfig
 };
 
-module.exports = withCss(withSass({
-  // sass takes care of css modules
-  cssModules: true,
-  
-  // less takes care of custom antd designs
-  ...withLess(lessOptions)
-}))
+module.exports = withCss(withLess(lessOptions))

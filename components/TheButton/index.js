@@ -1,11 +1,10 @@
 import React from 'react'
-import Button from 'antd/lib/button';
-import './style.less';
-import { hero } from './style.css';
+import Button from 'antd/lib/button/button';
+import styles from './style.less';
 
 const TheButton = () => (
-  <div className={hero}>
-    <Button>Test</Button>
+  <div className={styles.Container}>
+    <Button className={styles.BigBtn}>Test</Button>
   </div>
 )
 
